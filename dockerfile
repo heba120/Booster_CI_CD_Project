@@ -9,4 +9,7 @@ COPY . .
 
 EXPOSE 8000
 
-CMD ["python", "manage.py", "migrate"] 
+RUN python manage.py makemigrations
+RUN python manage.py migrate
+
+CMD ["python3.6", "manage.py", "runserver", "0.0.0.0:8000"]
